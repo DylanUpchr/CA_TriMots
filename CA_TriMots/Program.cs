@@ -40,7 +40,7 @@ namespace CA_TriMots
             //ReadFile(filePath); 
             Parallel.ForEach(File.ReadLines(filePath), (line, _, lineNumber) =>
             {
-                var splitLine = line.Split();
+                /*var splitLine = line.Split();
                 //splitLine.ToList().ForEach(w => Regex.Replace(w, @"[^\w\s]", ""));
                 foreach (var word in splitLine)
                 {
@@ -55,11 +55,16 @@ namespace CA_TriMots
                         {
                             TextDictionary.TryAdd(word, 1);
                         }
-                    }*/
+                    }
                     Text.Add(word);
                     //Text2.Add(word);
+                }*/
+                if (lineNumber > 500)
+                {
+                    Text.Add(line);
                 }
             });
+            Text.ForEach(l => Text2.AddRange(l.Split()));
         }
         /*static void ReadFile(string path)
         {
